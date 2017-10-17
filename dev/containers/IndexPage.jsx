@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchClasses} from '../actions';
 import { Container, Header } from 'semantic-ui-react';
+import RenderList from '../components/RenderList.jsx';
 
 const styles = {
   header: { height: 500, padding: '1em 0em', backgroundColor: '#354A62' },
@@ -14,6 +15,11 @@ const styles = {
 class IndexPage extends Component {
   constructor(props){
     super(props);
+    this.renderListItem = this.renderListItem.bind(this);
+  }
+
+  renderListItem(studioClass){
+    console.log("the studioClass is ", studioClass);
   }
 
   componentDidMount() {
@@ -38,6 +44,9 @@ class IndexPage extends Component {
             style={styles.header_h2}
           />    
         </Container>
+
+        <RenderList classList={this.props.classes} />
+
       </div>
     )
   }

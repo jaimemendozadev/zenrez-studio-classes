@@ -10,6 +10,8 @@ import IndexPage from './containers/IndexPage.jsx';
 import Show from './components/Show.jsx';
 import rootReducer from './reducers';
 
+
+
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 ReactDOM.render(
