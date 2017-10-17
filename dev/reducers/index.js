@@ -1,5 +1,5 @@
-import combineReducers from 'redux';
-import ClassReducer from './class_reducer.js';
+import {combineReducers} from 'redux';
+import {ClassReducer} from './class_reducer.js';
 
 
 const rootReducer = combineReducers({
