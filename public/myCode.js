@@ -88,20 +88,28 @@ var _reactRedux = __webpack_require__(85);
 
 var _reactRouterDom = __webpack_require__(95);
 
+var _reducers = __webpack_require__(121);
+
+var _reducers2 = _interopRequireDefault(_reducers);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var createStoreWithMiddleware = (0, _redux.applyMiddleware)(_reduxPromise2.default)(_redux.createStore);
 
 _reactDom2.default.render(_react2.default.createElement(
-  _reactRouterDom.BrowserRouter,
-  null,
+  _reactRedux.Provider,
+  { store: createStoreWithMiddleware(_reducers2.default) },
   _react2.default.createElement(
-    'div',
+    _reactRouterDom.BrowserRouter,
     null,
     _react2.default.createElement(
-      'h1',
+      'div',
       null,
-      'Welcome to the Zenrez Studio Class Schedule!'
+      _react2.default.createElement(
+        'h1',
+        null,
+        'Welcome to the Zenrez Studio Class Schedule!'
+      )
     )
   )
 ), document.querySelector('.container'));
@@ -28508,6 +28516,40 @@ var withRouter = function withRouter(Component) {
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (withRouter);
+
+/***/ }),
+/* 121 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _redux = __webpack_require__(46);
+
+var _redux2 = _interopRequireDefault(_redux);
+
+var _class_reducer = __webpack_require__(122);
+
+var _class_reducer2 = _interopRequireDefault(_class_reducer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var rootReducer = (0, _redux2.default)({
+  classes: _class_reducer2.default
+});
+
+exports.default = rootReducer;
+
+/***/ }),
+/* 122 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 /***/ })
 /******/ ]);

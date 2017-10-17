@@ -5,14 +5,17 @@ import {applyMiddleware, createStore} from 'redux';
 import {Provider} from 'react-redux';
 import {BrowserRouter, Path} from 'react-router-dom';
 
+import rootReducer from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 
 
 ReactDOM.render(
-  <BrowserRouter>
-    <div>
-      <h1>Welcome to the Zenrez Studio Class Schedule!</h1>
-    </div>
-  </BrowserRouter>, document.querySelector('.container'));
+  <Provider store={createStoreWithMiddleware(rootReducer)}>
+    <BrowserRouter>
+      <div>
+        <h1>Welcome to the Zenrez Studio Class Schedule!</h1>
+      </div>
+    </BrowserRouter>
+  </Provider>, document.querySelector('.container'));
