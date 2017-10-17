@@ -19,7 +19,7 @@ class IndexPage extends Component {
     }
     return(
       <div>
-        <h1>Welcome to the Zenrez Studio Class Schedule!</h1>        
+        <h1>Welcome to the Zenrez Studio Class Schedule!</h1>
       </div>
     )
   }

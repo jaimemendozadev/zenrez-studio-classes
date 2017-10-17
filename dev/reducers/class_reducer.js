@@ -1,11 +1,10 @@
 import {FETCH_CLASSES} from '../actions';
+import _ from 'lodash';
 
 export function ClassReducer(state = {}, action){
    switch(action.type){
      case FETCH_CLASSES:
-       console.log("the payload is ", action.payload.data);
-       let dataToRender = {data: "Hit the reducer"};
-       return dataToRender;
+       return _.mapKeys(action.payload.data.classes, 'id');
    } 
    return state;
 }
