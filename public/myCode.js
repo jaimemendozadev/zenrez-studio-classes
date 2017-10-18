@@ -9978,10 +9978,31 @@ var styles = exports.styles = {
   header: { height: 500, padding: '1em 0em', backgroundColor: '#354A62' },
   header_h1: { textAlign: 'center', fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: '3em', color: 'white' },
   header_h2: { textAlign: 'center', fontSize: '1.7em', fontWeight: 'normal', color: 'white' },
+
   listContainer: { width: '50%', margin: '2em auto', padding: '1em' },
-  listItem: { fontSize: '1.2em', margin: '1.3em 0' },
+  classImg: { width: '100px', height: '100px', float: 'left', margin: '0 1em', borderRadius: '3px' },
+
+  listItem: { fontSize: '1.2em', width: 'auto', clear: 'both' },
+
   spinner: { textAlign: 'center', margin: '2em auto' },
-  price: { marginLeft: '1.3em' }
+
+  description: { textAlign: 'center', verticalAlign: 'middle' },
+
+  price: {
+
+    backgroundColor: '#db2828',
+    borderColor: '#db2828',
+    borderRadius: '10px',
+    color: '#fff',
+    width: '68px',
+    height: '44px',
+    textAlign: 'center',
+    verticalAlign: 'middle',
+    lineHeight: '44px',
+
+    float: 'right'
+  }
+
 };
 
 function handleClick(id) {
@@ -23825,48 +23846,41 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var RenderList = function RenderList(props) {
   return _react2.default.createElement(
-    _semanticUiReact.List,
+    'div',
     { style: _utils.styles.listContainer },
     _lodash2.default.map(props.classList, function (value) {
       return _react2.default.createElement(
-        _semanticUiReact.List.Item,
-        { key: value.id, style: _utils.styles.listItem },
+        _reactRouterDom.Link,
+        { to: '/show/' + value.id, key: value.id },
         _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/show/' + value.id },
-          _react2.default.createElement(_semanticUiReact.Image, {
+          'div',
+          { style: _utils.styles.listItem },
+          _react2.default.createElement('img', {
             src: value.img_url,
-            size: 'tiny',
-            shape: 'rounded',
-            verticalAlign: 'middle',
-            floated: 'left',
-            bordered: true
+            style: _utils.styles.classImg
           }),
           _react2.default.createElement(
-            _semanticUiReact.List.Content,
-            null,
-            _react2.default.createElement(
-              _semanticUiReact.List.Description,
-              null,
-              _react2.default.createElement(
-                'p',
-                null,
-                value.title,
-                ' with ',
-                value.instructor,
-                _react2.default.createElement('br', null),
-                value.start_time,
-                ' - ',
-                value.end_time
-              )
-            )
+            'span',
+            { style: _utils.styles.description },
+            value.title,
+            ' with ',
+            value.instructor,
+            _react2.default.createElement('br', null),
+            value.start_time,
+            ' - ',
+            value.end_time
           ),
           _react2.default.createElement(
-            _semanticUiReact.Label,
-            { style: _utils.styles.price, floated: 'right', color: 'red', size: 'huge' },
+            'span',
+            { style: _utils.styles.price },
             '$',
             value.price
           )
+        ),
+        _react2.default.createElement(
+          'div',
+          { style: { margin: '2.5em 0' } },
+          _react2.default.createElement('br', null)
         )
       );
     })

@@ -8,35 +8,33 @@ import {styles, handleClick} from '../utils.js';
 
 const RenderList = (props) => {
   return(
-    <List style={styles.listContainer}>
+    <div style={styles.listContainer}>
       {_.map(props.classList, (value) => {
         return (
+          <Link to={`/show/${value.id}`} key={value.id}> 
+          <div style={styles.listItem}>
           
-          <List.Item key={value.id} style={styles.listItem}>
-            <Link to={`/show/${value.id}`}>  
-            <Image 
-              src={value.img_url} 
-              size='tiny' 
-              shape='rounded' 
-              verticalAlign='middle'
-              floated='left'
-              bordered 
+            <img 
+              src={value.img_url}
+              style={styles.classImg} 
             />
             
-            <List.Content>
-              <List.Description>
-                <p>{value.title} with {value.instructor}<br />
-                {value.start_time} - {value.end_time}</p>
-              </List.Description>
-            </List.Content>
+            <span style={styles.description}>{value.title} with {value.instructor}<br />
+                {value.start_time} - {value.end_time}</span>
+            
+            <span style={styles.price}>${value.price}</span>
+            
+          </div>
 
-            <Label style={styles.price} floated='right' color='red' size='huge'>${value.price}</Label>
-            </Link>
-          </List.Item>
+          {/*can't directly add styling to <Link>. Must add extra markup for spacing bet. 2 <Link>*/}
+          <div style={{margin: '2.5em 0'}}>
+            <br />
+          </div>
+          </Link>
           
         )
       })}
-    </List> 
+    </div> 
   )
 }
 
