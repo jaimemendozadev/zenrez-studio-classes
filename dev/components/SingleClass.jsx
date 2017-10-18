@@ -1,10 +1,16 @@
 import React from 'react';
+import moment from 'moment';
 import { Container, Image, Header, List } from 'semantic-ui-react';
 import {styles} from '../utils.js';
 
+
+
 const SingleClass = (props) => {
   const singleClass = props.singleClass;
-  console.log("the singleClass is ", singleClass);
+  const classDate = moment(singleClass.class_date).format("dddd, MMMM Do, YYYY");
+
+  console.log("the classDate is ", classDate)
+  
   return (
     <Container style={styles.showSingleClass}>
 
@@ -20,7 +26,7 @@ const SingleClass = (props) => {
         <List.Item><strong>Instructor</strong>: {singleClass.instructor}</List.Item>
         <List.Item><strong>Price</strong>: ${singleClass.price}</List.Item>
         <List.Item><strong>Available Seats</strong>: {singleClass.available_seats}</List.Item>
-        <List.Item><strong>Class Date</strong>: {singleClass.class_date}</List.Item>
+        <List.Item><strong>Class Date</strong>: {classDate}</List.Item>
         <List.Item><strong>Start Time</strong>: {singleClass.start_time}</List.Item>
         <List.Item><strong>End Time</strong>: {singleClass.end_time}</List.Item>
       </List>
