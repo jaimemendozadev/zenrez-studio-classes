@@ -29,8 +29,3 @@ export const styles = {
   
 }
 
-export function handleClick(id){
-  console.log("the id passed into handleClick is ", id);
-}
-
-

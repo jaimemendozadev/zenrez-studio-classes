@@ -4,8 +4,6 @@ import _ from 'lodash';
 import {Link} from 'react-router-dom';
 import {styles, handleClick} from '../utils.js';
 
-
-
 const RenderList = (props) => {
   return(
     <div style={styles.listContainer}>
