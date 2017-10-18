@@ -1,25 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchClasses} from '../actions';
-import { Container, Header } from 'semantic-ui-react';
+import RenderHeader from '../components/RenderHeader.jsx';
 import RenderList from '../components/RenderList.jsx';
-
-const styles = {
-  header: { height: 500, padding: '1em 0em', backgroundColor: '#354A62' },
-  header_h1: { textAlign: 'center', fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: '3em', color: 'white' },
-  header_h2: { textAlign: 'center', fontSize: '1.7em', fontWeight: 'normal', color: 'white' }
-}
-
-
 
 class IndexPage extends Component {
   constructor(props){
     super(props);
-    this.renderListItem = this.renderListItem.bind(this);
-  }
-
-  renderListItem(studioClass){
-    console.log("the studioClass is ", studioClass);
   }
 
   componentDidMount() {
@@ -32,21 +19,8 @@ class IndexPage extends Component {
     }
     return(
       <div>
-        <Container style={styles.header} fluid>
-          <Header
-            as='h1'
-            content='Welcome to the Zenrez Studio Class Schedule!'
-            style={styles.header_h1}
-          />
-          <Header
-            as='h2'
-            content='Choose from one of our awesome classes!'
-            style={styles.header_h2}
-          />    
-        </Container>
-
+        <RenderHeader />
         <RenderList classList={this.props.classes} />
-
       </div>
     )
   }
