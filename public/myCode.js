@@ -9488,18 +9488,15 @@ var styles = exports.styles = {
   header: { height: 500, padding: '1em 0em', backgroundColor: '#354A62' },
   header_h1: { textAlign: 'center', fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: '3em', color: 'white' },
   header_h2: { textAlign: 'center', fontSize: '1.7em', fontWeight: 'normal', color: 'white' },
-
   listContainer: { width: '50%', margin: '2em auto', padding: '1em' },
   classImg: { width: '100px', height: '100px', float: 'left', margin: '0 1em', borderRadius: '3px' },
-
   listItem: { fontSize: '1.2em', width: 'auto', clear: 'both' },
-
   spinner: { textAlign: 'center', margin: '2em auto' },
-
   description: { textAlign: 'center', verticalAlign: 'middle' },
+  showSingleClass: { margin: '2em auto', width: '80%' },
+  singleClassDescription: { fontSize: '1.5em' },
 
   price: {
-
     backgroundColor: '#db2828',
     borderColor: '#db2828',
     borderRadius: '10px',
@@ -9509,7 +9506,6 @@ var styles = exports.styles = {
     textAlign: 'center',
     verticalAlign: 'middle',
     lineHeight: '44px',
-
     float: 'right'
   }
 
@@ -86021,6 +86017,10 @@ var _RenderSpinner = __webpack_require__(420);
 
 var _RenderSpinner2 = _interopRequireDefault(_RenderSpinner);
 
+var _SingleClass = __webpack_require__(840);
+
+var _SingleClass2 = _interopRequireDefault(_SingleClass);
+
 var _actions = __webpack_require__(239);
 
 var _reactRedux = __webpack_require__(136);
@@ -86055,9 +86055,7 @@ var Show = function (_Component) {
         'div',
         null,
         _react2.default.createElement(_RenderHeader2.default, null),
-        _react2.default.createElement(_RenderSpinner2.default, null),
-        console.log("the props inside Show are ", this.props),
-        !this.props.singleClass ? _react2.default.createElement(_RenderSpinner2.default, null) : ""
+        !this.props.singleClass ? _react2.default.createElement(_RenderSpinner2.default, null) : _react2.default.createElement(_SingleClass2.default, { singleClass: this.props.singleClass })
       );
     }
   }]);
@@ -86135,6 +86133,127 @@ function ClassReducer() {
   }
   return state;
 }
+
+/***/ }),
+/* 840 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _semanticUiReact = __webpack_require__(247);
+
+var _utils = __webpack_require__(216);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var SingleClass = function SingleClass(props) {
+  var singleClass = props.singleClass;
+  console.log("the singleClass is ", singleClass);
+  return _react2.default.createElement(
+    _semanticUiReact.Container,
+    { style: _utils.styles.showSingleClass },
+    _react2.default.createElement(
+      _semanticUiReact.Container,
+      { style: { width: '70%' } },
+      _react2.default.createElement(_semanticUiReact.Image, { style: { margin: '0 auto', maxWidth: '100%', maxHeight: 'auto' }, src: singleClass.img_url })
+    ),
+    _react2.default.createElement(
+      _semanticUiReact.Header,
+      { textAlign: 'center', size: 'huge' },
+      singleClass.title
+    ),
+    _react2.default.createElement(
+      _semanticUiReact.Container,
+      { text: true },
+      singleClass.description
+    ),
+    _react2.default.createElement(
+      _semanticUiReact.Container,
+      { style: _utils.styles.singleClassDescription, text: true },
+      _react2.default.createElement(
+        _semanticUiReact.List,
+        { style: { marginTop: '2em' }, divided: true, relaxed: true },
+        _react2.default.createElement(
+          _semanticUiReact.List.Item,
+          null,
+          _react2.default.createElement(
+            'strong',
+            null,
+            'Instructor'
+          ),
+          ': ',
+          singleClass.instructor
+        ),
+        _react2.default.createElement(
+          _semanticUiReact.List.Item,
+          null,
+          _react2.default.createElement(
+            'strong',
+            null,
+            'Price'
+          ),
+          ': $',
+          singleClass.price
+        ),
+        _react2.default.createElement(
+          _semanticUiReact.List.Item,
+          null,
+          _react2.default.createElement(
+            'strong',
+            null,
+            'Available Seats'
+          ),
+          ': ',
+          singleClass.available_seats
+        ),
+        _react2.default.createElement(
+          _semanticUiReact.List.Item,
+          null,
+          _react2.default.createElement(
+            'strong',
+            null,
+            'Class Date'
+          ),
+          ': ',
+          singleClass.class_date
+        ),
+        _react2.default.createElement(
+          _semanticUiReact.List.Item,
+          null,
+          _react2.default.createElement(
+            'strong',
+            null,
+            'Start Time'
+          ),
+          ': ',
+          singleClass.start_time
+        ),
+        _react2.default.createElement(
+          _semanticUiReact.List.Item,
+          null,
+          _react2.default.createElement(
+            'strong',
+            null,
+            'End Time'
+          ),
+          ': ',
+          singleClass.end_time
+        )
+      )
+    )
+  );
+};
+
+exports.default = SingleClass;
 
 /***/ })
 /******/ ]);

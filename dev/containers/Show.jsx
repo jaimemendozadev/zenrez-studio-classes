@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import RenderHeader from '../components/RenderHeader.jsx';
 import RenderSpinner from '../components/RenderSpinner.jsx';
+import SingleClass from '../components/SingleClass.jsx';
 import {fetchClass} from '../actions';
 import {connect} from 'react-redux'
 
@@ -18,10 +19,7 @@ class Show extends Component {
     return(
       <div>
         <RenderHeader />
-        <RenderSpinner />
-
-        {console.log("the props inside Show are ", this.props)}
-        {!this.props.singleClass ? <RenderSpinner /> : "" }
+        {!this.props.singleClass ? <RenderSpinner /> : <SingleClass singleClass={this.props.singleClass} /> }
       </div>
     )
   }
