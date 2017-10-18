@@ -8,7 +8,6 @@ export function ClassReducer(state = {}, action){
        return _.mapKeys(action.payload.data.classes, 'id');
 
      case FETCH_CLASS:
-       //why can't I destruct the object?
        let id = action.payload.id;
        let newObj = {};
        newObj[id] = action.payload;

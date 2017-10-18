@@ -86123,7 +86123,6 @@ function ClassReducer() {
       return _lodash2.default.mapKeys(action.payload.data.classes, 'id');
 
     case _actions.FETCH_CLASS:
-      //why can't I destruct the object?
       var id = action.payload.id;
       var newObj = {};
       newObj[id] = action.payload;
