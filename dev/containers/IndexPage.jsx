@@ -18,7 +18,7 @@ class IndexPage extends Component {
     return(
       <div>
         <RenderHeader />
-        {!this.props.class ? <RenderSpinner /> : <RenderList classList={this.props.classes} />}
+        {!this.props.classes ? <RenderSpinner /> : <RenderList classList={this.props.classes} />}
       </div>
     )
   }

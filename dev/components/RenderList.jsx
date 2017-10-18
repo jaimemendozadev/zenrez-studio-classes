@@ -1,7 +1,8 @@
 import React from 'react';
-import { List, Image } from 'semantic-ui-react';
+import { List, Image, Label } from 'semantic-ui-react';
 import _ from 'lodash';
-import {styles} from '../utils.js';
+import {styles, handleClick} from '../utils.js';
+
 
 
 const RenderList = (props) => {
@@ -9,17 +10,29 @@ const RenderList = (props) => {
     <List style={styles.listContainer}>
       {_.map(props.classList, (value) => {
         return (
-          <List.Item style={styles.listItem}>
-            <Image src={value.img_url} size='tiny' verticalAlign='middle' />
+          <List.Item 
+            key={value.id} 
+            style={styles.listItem} 
+            onClick={()=> { handleClick(value.id) }}>
+            
+            <Image 
+              src={value.img_url} 
+              size='tiny' 
+              shape='rounded' 
+              verticalAlign='middle'
+              floated='left'
+              bordered 
+            />
+            
             <List.Content>
-              <List.Header>{value.title}</List.Header>
-              <List.Header>{value.instructor}</List.Header>
               <List.Description>
-                Start Time: {value.start_time}
-                End Time: {value.end_time}
-                Price: {value.price}
+                <p>{value.title} with {value.instructor}<br />
+                {value.start_time} - {value.end_time}</p>
               </List.Description>
-            </List.Content> 
+            </List.Content>
+
+            <Label style={styles.price} floated='right' color='red' size='huge'>${value.price}</Label> 
+
           </List.Item>
         )
       })}

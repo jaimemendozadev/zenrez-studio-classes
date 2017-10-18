@@ -65705,7 +65705,7 @@ var IndexPage = function (_Component) {
         'div',
         null,
         _react2.default.createElement(_RenderHeader2.default, null),
-        !this.props.class ? _react2.default.createElement(_RenderSpinner2.default, null) : _react2.default.createElement(_RenderList2.default, { classList: this.props.classes })
+        !this.props.classes ? _react2.default.createElement(_RenderSpinner2.default, null) : _react2.default.createElement(_RenderList2.default, { classList: this.props.classes })
       );
     }
   }]);
@@ -85831,14 +85831,24 @@ Feed.User = __WEBPACK_IMPORTED_MODULE_16__FeedUser__["a" /* default */];
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.styles = undefined;
+exports.handleClick = handleClick;
+
+var _reactRouterDom = __webpack_require__(460);
+
 var styles = exports.styles = {
   header: { height: 500, padding: '1em 0em', backgroundColor: '#354A62' },
   header_h1: { textAlign: 'center', fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: '3em', color: 'white' },
   header_h2: { textAlign: 'center', fontSize: '1.7em', fontWeight: 'normal', color: 'white' },
-  listContainer: { width: '70%', margin: '2em auto', padding: '1em', border: '1px solid black' },
-  listItem: { fontSize: '1.5em' },
-  spinner: { textAlign: 'center', margin: '2em auto' }
+  listContainer: { width: '50%', margin: '2em auto', padding: '1em' },
+  listItem: { fontSize: '1.2em', margin: '1.3em 0' },
+  spinner: { textAlign: 'center', margin: '2em auto' },
+  price: { marginLeft: '1.3em' }
 };
+
+function handleClick(id) {
+  console.log("the id passed into handleClick is ", id);
+}
 
 /***/ }),
 /* 835 */
@@ -85872,31 +85882,44 @@ var RenderList = function RenderList(props) {
     _lodash2.default.map(props.classList, function (value) {
       return _react2.default.createElement(
         _semanticUiReact.List.Item,
-        { style: _utils.styles.listItem },
-        _react2.default.createElement(_semanticUiReact.Image, { src: value.img_url, size: 'tiny', verticalAlign: 'middle' }),
+        {
+          key: value.id,
+          style: _utils.styles.listItem,
+          onClick: function onClick() {
+            (0, _utils.handleClick)(value.id);
+          } },
+        _react2.default.createElement(_semanticUiReact.Image, {
+          src: value.img_url,
+          size: 'tiny',
+          shape: 'rounded',
+          verticalAlign: 'middle',
+          floated: 'left',
+          bordered: true
+        }),
         _react2.default.createElement(
           _semanticUiReact.List.Content,
           null,
           _react2.default.createElement(
-            _semanticUiReact.List.Header,
-            null,
-            value.title
-          ),
-          _react2.default.createElement(
-            _semanticUiReact.List.Header,
-            null,
-            value.instructor
-          ),
-          _react2.default.createElement(
             _semanticUiReact.List.Description,
             null,
-            'Start Time: ',
-            value.start_time,
-            'End Time: ',
-            value.end_time,
-            'Price: ',
-            value.price
+            _react2.default.createElement(
+              'p',
+              null,
+              value.title,
+              ' with ',
+              value.instructor,
+              _react2.default.createElement('br', null),
+              value.start_time,
+              ' - ',
+              value.end_time
+            )
           )
+        ),
+        _react2.default.createElement(
+          _semanticUiReact.Label,
+          { style: _utils.styles.price, floated: 'right', color: 'red', size: 'huge' },
+          '$',
+          value.price
         )
       );
     })
