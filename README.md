@@ -1,20 +1,16 @@
 # [Zenrez Studio Classes](https://github.com/jaimemendozadev/zenrez-studio-classes.git)
 
-Zenrez Studio Classes Description
-
+Welcome to the Zenrez Studio Class Schedule! Here you will a list of all the available classes. Click on the class that interests you for more information!
 
 ## Table of contents
 
 - Initial Setup
 - Starting the App
-- How it Works
 - Created By
 
 ## Initial Setup
 
 Open up your terminal and clone the repo locally to your computer by running the following command at the target destination: `$ git clone https://github.com/jaimemendozadev/zenrez-studio-classes.git`
-
-
 
 
 ## Starting the App
@@ -27,13 +23,7 @@ Finally in the first terminal tab, or in another opened terminal tab, run the co
 
 Go to `http://localhost:3000` in your favorite browser to start using the app. 
 
-
-## How it Works
-
-
-
 Checkout the live version on [Heroku]()!
-
 
 ## Created By
 
