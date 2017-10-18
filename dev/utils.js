@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom';
+
 
 export const styles = {
   header: { height: 500, padding: '1em 0em', backgroundColor: '#354A62' },
@@ -12,5 +12,4 @@ export const styles = {
 
 export function handleClick(id){
   console.log("the id passed into handleClick is ", id);
-
 }

@@ -6,7 +6,7 @@ const RenderSpinner = () => {
   return(
     <div style={styles.spinner}>
       <h2>Please wait while we fetch the data...</h2>
-      <img src="imgs/spiffygif_46x46.gif" /> 
+      <img src="/imgs/spiffygif_46x46.gif" /> 
     </div>    
   )
 }

@@ -7,7 +7,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 
 import IndexPage from './containers/IndexPage.jsx';
-import Show from './components/Show.jsx';
+import Show from './containers/Show.jsx';
 import rootReducer from './reducers';
 
 
@@ -18,7 +18,7 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(rootReducer)}>
     <BrowserRouter>
       <Switch>
-        {/* <Route path="/show/:id" component={Show} /> */}
+        <Route path="/show/:id" component={Show} />
         <Route path="/" component={IndexPage} />  
       </Switch>
     </BrowserRouter>

@@ -8,6 +8,7 @@ var config = {
   entry: DEV + "/index.jsx",
   output: {
     path: PUBLIC,
+    publicPath: '/',
     filename: "myCode.js"
   },
   module: {
