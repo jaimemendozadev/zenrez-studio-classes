@@ -65672,6 +65672,10 @@ var _RenderList = __webpack_require__(835);
 
 var _RenderList2 = _interopRequireDefault(_RenderList);
 
+var _RenderSpinner = __webpack_require__(839);
+
+var _RenderSpinner2 = _interopRequireDefault(_RenderSpinner);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -65697,18 +65701,11 @@ var IndexPage = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      if (!this.props.classes) {
-        return _react2.default.createElement(
-          'h2',
-          null,
-          'Loading data...'
-        );
-      }
       return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(_RenderHeader2.default, null),
-        _react2.default.createElement(_RenderList2.default, { classList: this.props.classes })
+        !this.props.class ? _react2.default.createElement(_RenderSpinner2.default, null) : _react2.default.createElement(_RenderList2.default, { classList: this.props.classes })
       );
     }
   }]);
@@ -85839,7 +85836,8 @@ var styles = exports.styles = {
   header_h1: { textAlign: 'center', fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: '3em', color: 'white' },
   header_h2: { textAlign: 'center', fontSize: '1.7em', fontWeight: 'normal', color: 'white' },
   listContainer: { width: '70%', margin: '2em auto', padding: '1em', border: '1px solid black' },
-  listItem: { fontSize: '1.5em' }
+  listItem: { fontSize: '1.5em' },
+  spinner: { textAlign: 'center', margin: '2em auto' }
 };
 
 /***/ }),
@@ -85965,6 +85963,42 @@ function ClassReducer() {
   }
   return state;
 }
+
+/***/ }),
+/* 839 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _semanticUiReact = __webpack_require__(243);
+
+var _utils = __webpack_require__(834);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var RenderSpinner = function RenderSpinner() {
+  return _react2.default.createElement(
+    'div',
+    { style: _utils.styles.spinner },
+    _react2.default.createElement(
+      'h2',
+      null,
+      'Please wait while we fetch the data...'
+    ),
+    _react2.default.createElement('img', { src: 'imgs/spiffygif_46x46.gif' })
+  );
+};
+
+exports.default = RenderSpinner;
 
 /***/ })
 /******/ ]);

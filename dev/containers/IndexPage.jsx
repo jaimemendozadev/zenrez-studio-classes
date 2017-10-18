@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {fetchClasses} from '../actions';
 import RenderHeader from '../components/RenderHeader.jsx';
 import RenderList from '../components/RenderList.jsx';
+import RenderSpinner from '../components/RenderSpinner.jsx';
 
 class IndexPage extends Component {
   constructor(props){
@@ -14,13 +15,10 @@ class IndexPage extends Component {
   }
 
   render(){
-    if (!this.props.classes){
-      return <h2>Loading data...</h2>
-    }
     return(
       <div>
         <RenderHeader />
-        <RenderList classList={this.props.classes} />
+        {!this.props.class ? <RenderSpinner /> : <RenderList classList={this.props.classes} />}
       </div>
     )
   }
