@@ -1,6 +1,8 @@
 # [Zenrez Studio Classes](https://github.com/jaimemendozadev/zenrez-studio-classes.git)
 
-Welcome to the Zenrez Studio Class Schedule! Here you will a list of all the available classes. Click on the class that interests you for more information!
+Welcome to the Zenrez Studio Class Schedule! Here you will find a list of all our available classes. Click on the class that interests you for more information!
+
+Fair warning, looking for an unlisted class will result in the spinner of perpetual waiting. :stuck_out_tongue_closed_eyes:
 
 ## Table of contents
 
@@ -23,7 +25,7 @@ Finally in the first terminal tab, or in another opened terminal tab, run the co
 
 Go to `http://localhost:3000` in your favorite browser to start using the app. 
 
-Checkout the live version on [Heroku]()!
+Checkout the live version on [Heroku](https://zenrez-classes.herokuapp.com/)!
 
 ## Created By
 
